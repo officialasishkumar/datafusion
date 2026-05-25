@@ -27,22 +27,23 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=d08b24aa" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/explain-usage';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,20 +52,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -90,7 +97,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -321,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/api-health.html">API health policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/howtos.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide/release_management.html">Release Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/roadmap.html">Roadmap and Improvement Proposals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/governance.html">Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/inviting.html">Inviting New Committers and PMC Members</a></li>
@@ -339,6 +347,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/ballista/">DataFusion Ballista</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/comet/">DataFusion Comet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/java/">DataFusion Java</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/python/">DataFusion Python</a></li>
 </ul>
 
@@ -549,7 +558,7 @@ next section)</p>
 <section id="more-debugging-information-explain-verbose">
 <h2>More Debugging Information: <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span> <span class="pre">VERBOSE</span></code><a class="headerlink" href="#more-debugging-information-explain-verbose" title="Link to this heading">#</a></h2>
 <p>If the plan has to read too many files, not all of them will be shown in the
-<code class="docutils literal notranslate"><span class="pre">EXPLAIN</span></code>. To see them, use <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span> <span class="pre">VEBOSE</span></code>. Like <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span> <span class="pre">VERBOSE</span></code>
+<code class="docutils literal notranslate"><span class="pre">EXPLAIN</span></code>. To see them, use <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span> <span class="pre">VERBOSE</span></code>. Like <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span></code>, <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span> <span class="pre">VERBOSE</span></code>
 does not run the query. Instead it shows the full explain plan, with information
 that is omitted from the default explain, as well as all intermediate physical
 plans DataFusion generates before returning. This mode can be very helpful for
@@ -630,6 +639,7 @@ by all 16 cores.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">output_rows_skew</span></code>: output skew score derived from per-partition <code class="docutils literal notranslate"><span class="pre">output_rows</span></code>. <code class="docutils literal notranslate"><span class="pre">0%</span></code> is perfectly balanced, <code class="docutils literal notranslate"><span class="pre">100%</span></code> is maximally skewed, and <code class="docutils literal notranslate"><span class="pre">N/A</span></code> means no output rows were produced.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">page_index_rows_pruned</span></code>: number of rows evaluated by page index filters. The metric reports both how many rows were considered in total and how many matched (were not pruned).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">page_index_pages_pruned</span></code>: number of pages evaluated by page index filters. The metric reports both how many pages were considered in total and how many matched (were not pruned).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_index_pages_skipped_by_fully_matched</span></code>: number of pages for which page-index pruning was skipped because row-group statistics proved the containing row group was fully matched. These pages are still scanned.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">row_groups_pruned_bloom_filter</span></code>: number of row groups evaluated by Bloom Filters, reporting both total checked groups and groups that matched.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">row_groups_pruned_statistics</span></code>: number of row groups evaluated by row-group statistics (min/max), reporting both total checked groups and groups that matched.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">limit_pruned_row_groups</span></code>: number of row groups pruned by the limit.</p></li>
@@ -848,8 +858,8 @@ Elapsed<span class="w"> </span><span class="m">0</span>.062<span class="w"> </sp
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-select-and-filter">Example: Select and filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#query-plans-are-trees">Query plans are trees</a></li>
@@ -881,13 +891,13 @@ Elapsed<span class="w"> </span><span class="m">0</span>.062<span class="w"> </sp
 </div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/user-guide/explain-usage.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/user-guide/explain-usage.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -902,8 +912,8 @@ Elapsed<span class="w"> </span><span class="m">0</span>.062<span class="w"> </sp
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 <!-- Based on pydata_sphinx_theme/footer.html -->
 <footer class="footer mt-5 mt-md-0">

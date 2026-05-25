@@ -27,22 +27,23 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=d08b24aa" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/concepts-readings-events';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,20 +52,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -90,7 +97,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -321,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/api-health.html">API health policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/howtos.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide/release_management.html">Release Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/roadmap.html">Roadmap and Improvement Proposals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/governance.html">Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/inviting.html">Inviting New Committers and PMC Members</a></li>
@@ -339,6 +347,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/ballista/">DataFusion Ballista</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/comet/">DataFusion Comet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/java/">DataFusion Java</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/python/">DataFusion Python</a></li>
 </ul>
 
@@ -423,7 +432,7 @@
 <h2>🧭 Background Concepts<a class="headerlink" href="#background-concepts" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>2024-06-13</strong>: <a class="reference external" href="https://dl.acm.org/doi/10.1145/3626246.3653368">2024 ACM SIGMOD International Conference on Management of Data: Apache Arrow DataFusion: A Fast, Embeddable, Modular Analytic Query Engine</a> - <a class="reference external" href="https://andrew.nerdnetworks.org/pdf/SIGMOD-2024-lamb.pdf">Download</a>, <a class="reference external" href="https://youtu.be/-DpKcPfnNms">Talk</a>, <a class="reference external" href="https://docs.google.com/presentation/d/1gqcxSNLGVwaqN0_yJtCbNm19-w5pqPuktII5_EDA6_k/edit#slide=id.p">Slides</a>, <a class="reference external" href="https://youtu.be/-DpKcPfnNms">Recording </a></p></li>
-<li><p><strong>2024-06-07</strong>: <a class="reference external" href="https://www.youtube.com/watch?v=-DpKcPfnNms&amp;amp;t=5s">Video: SIGMOD 2024 Practice: Apache Arrow DataFusion A Fast, Embeddable, Modular Analytic Query Engine</a> - <a class="reference external" href="https://docs.google.com/presentation/d/1gqcxSNLGVwaqN0_yJtCbNm19-w5pqPuktII5_EDA6_k/edit#slide=id.p">Slides</a></p></li>
+<li><p><strong>2024-06-07</strong>: <a class="reference external" href="https://www.youtube.com/watch?v=-DpKcPfnNms&amp;t=5s">Video: SIGMOD 2024 Practice: Apache Arrow DataFusion A Fast, Embeddable, Modular Analytic Query Engine</a> - <a class="reference external" href="https://docs.google.com/presentation/d/1gqcxSNLGVwaqN0_yJtCbNm19-w5pqPuktII5_EDA6_k/edit#slide=id.p">Slides</a></p></li>
 <li><p><strong>2023-04-05</strong>: <a class="reference external" href="https://youtu.be/2jkWU3_w6z0">Video: DataFusion Architecture Part 3: Physical Plan and Execution</a> - <a class="reference external" href="https://docs.google.com/presentation/d/1cA2WQJ2qg6tx6y4Wf8FH2WVSm9JQ5UgmBWATHdik0hg">Slides</a></p></li>
 <li><p><strong>2023-04-04</strong>: <a class="reference external" href="https://youtu.be/EzZTLiSJnhY">Video: DataFusion Architecture Part 2: Logical Plans and Expressions</a> - <a class="reference external" href="https://docs.google.com/presentation/d/1ypylM3-w60kVDW7Q6S99AHzvlBgciTdjsAfqNP85K30">Slides</a></p></li>
 <li><p><strong>2023-03-31</strong>: <a class="reference external" href="https://youtu.be/NVKujPxwSBA">Video: DataFusion Architecture Part 1: Query Engines</a> - <a class="reference external" href="https://docs.google.com/presentation/d/1D3GDVas-8y0sA4c8EOgdCvEjVND4s2E7I6zfs67Y4j8">Slides</a></p></li>
@@ -434,6 +443,13 @@
 <h2>✨ Good Reads<a class="headerlink" href="#good-reads" title="Link to this heading">#</a></h2>
 <p>This is a list of DataFusion related blog posts, articles, and other resources. Please open a PR to add any new resources you create or find</p>
 <ul class="simple">
+<li><p><strong>2026-04-10</strong> <a class="reference external" href="https://thedataquarry.com/blog/datafusion-and-the-rise-of-deconstructed-data-systems/">Blog: DataFusion and the Rise of Deconstructed Data Systems</a></p></li>
+<li><p><strong>2026-04-04</strong> <a class="reference external" href="https://www.youtube.com/watch?v=TeFsBVIYBis">Video: Generalized Consensus &amp; Native Top-K Joins in ParadeDB</a></p></li>
+<li><p><strong>2026-03-31</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/03/31/writing-table-providers/">Blog: Writing Custom Table Providers in Apache DataFusion</a></p></li>
+<li><p><strong>2026-03-24</strong> <a class="reference external" href="https://www.youtube.com/watch?v=HkYF2So6nHQ">Podcast: The Data Fusion Secret &amp; Why Custom Query Engines Fail with Nikita Lapkov</a></p></li>
+<li><p><strong>2026-03-20</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/03/20/multi-layer-pruning/">Blog: Turning LIMIT into an I/O Optimization: Inside DataFusion’s Multi-Layer Pruning Stack</a></p></li>
+<li><p><strong>2026-02-09</strong> <a class="reference external" href="https://blog.xiangpeng.systems/posts/vector-search-with-parquet-datafusion/">Blog: Vector search using only Parquet and DataFusion</a></p></li>
+<li><p><strong>2026-02-02</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/02/02/case-expression/">Blog: Optimizing SQL CASE Expression Evaluation</a></p></li>
 <li><p><strong>2026-01-12</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/01/12/extending-sql">Blog: Extending SQL in DataFusion: from -&gt;&gt; to TABLESAMPLE</a></p></li>
 <li><p><strong>2025-12-15</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2025/12/15/avoid-consecutive-repartitions">Blog: Optimizing Repartitions in DataFusion: How I Went From Database Noob to Core Contribution</a></p></li>
 <li><p><strong>2025-09-21</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2025/09/21/custom-types-using-metadata">Blog: Implementing User Defined Types and Custom Metadata in DataFusion</a></p></li>
@@ -467,11 +483,11 @@
 <ul>
 <li><p><strong>2024-11-12</strong> <a class="reference external" href="https://www.youtube.com/watch?v=AGS4GNGDK_4">Video: Building InfluxDB 3.0 with the FDAP Stack: Apache Flight, DataFusion, Arrow and Parquet (Paul Dix)</a></p></li>
 <li><p><strong>2024-11-04</strong> <a class="reference external" href="https://www.youtube.com/watch?v=z38WY9uZtt4">Video: Synnada: Towards “Unified” Compute Engines: Opportunities and Challenges (Mehmet Ozan Kabak)</a></p></li>
-<li><p><strong>2024-10-28</strong> <a class="reference external" href="https://www.youtube.com/watch?v=fltZMO8EGl0&amp;amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;amp;index=6">Video: Exon: A Built for Purpose Bioinformatics Database (Trent Hauck)</a></p></li>
-<li><p><strong>2024-10-21</strong> <a class="reference external" href="https://www.youtube.com/watch?v=tyM-ec1lKfU&amp;amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;amp;index=5">Video: Accelerating Data and AI with Spice.ai Open-Source Software (Luke Kim)</a></p></li>
-<li><p><strong>2024-10-07</strong> <a class="reference external" href="https://www.youtube.com/watch?v=Vxb8TELNM98&amp;amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;amp;index=4">Video: ParadeDB – Postgres for Search and Analytics (Philippe Noël)</a></p></li>
-<li><p><strong>2024-09-30</strong> <a class="reference external" href="https://www.youtube.com/watch?v=o59s0d3HE1k&amp;amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;amp;index=3">Video: Accelerating Apache Spark Workloads with Apache DataFusion Comet (Andy Grove)</a></p></li>
-<li><p><strong>2024-09-23</strong> <a class="reference external" href="https://www.youtube.com/watch?v=iJhRbDFJjbg&amp;amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;amp;index=2">Video: Apache Arrow DataFusion: A Fast, Embeddable, Modular Analytic Query Engine (Andrew Lamb)</a></p></li>
+<li><p><strong>2024-10-28</strong> <a class="reference external" href="https://www.youtube.com/watch?v=fltZMO8EGl0&amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;index=6">Video: Exon: A Built for Purpose Bioinformatics Database (Trent Hauck)</a></p></li>
+<li><p><strong>2024-10-21</strong> <a class="reference external" href="https://www.youtube.com/watch?v=tyM-ec1lKfU&amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;index=5">Video: Accelerating Data and AI with Spice.ai Open-Source Software (Luke Kim)</a></p></li>
+<li><p><strong>2024-10-07</strong> <a class="reference external" href="https://www.youtube.com/watch?v=Vxb8TELNM98&amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;index=4">Video: ParadeDB – Postgres for Search and Analytics (Philippe Noël)</a></p></li>
+<li><p><strong>2024-09-30</strong> <a class="reference external" href="https://www.youtube.com/watch?v=o59s0d3HE1k&amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;index=3">Video: Accelerating Apache Spark Workloads with Apache DataFusion Comet (Andy Grove)</a></p></li>
+<li><p><strong>2024-09-23</strong> <a class="reference external" href="https://www.youtube.com/watch?v=iJhRbDFJjbg&amp;list=PLSE8ODhjZXjZc2AdXq_Lc1JS62R48UX2L&amp;index=2">Video: Apache Arrow DataFusion: A Fast, Embeddable, Modular Analytic Query Engine (Andrew Lamb)</a></p></li>
 </ul>
 </li>
 <li><p><strong>2024-09-17</strong> <a class="reference external" href="https://www.youtube.com/watch?v=2z11xtYw_xs">Video: Profiling Apache DataFusion using flamegraph</a></p></li>
@@ -507,6 +523,8 @@
 <section id="release-notes-updates">
 <h2>📅 Release Notes &amp; Updates<a class="headerlink" href="#release-notes-updates" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><strong>2026-04-02</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/04/02/datafusion-53.0.0">Apache DataFusion 53.0.0 Released</a></p></li>
+<li><p><strong>2026-03-18</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/03/18/datafusion-comet-0.14.0">Apache DataFusion Comet 0.14.0 Release</a></p></li>
 <li><p><strong>2026-01-30</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/01/30/datafusion-comet-0.13.0">Apache DataFusion Comet 0.13.0 Release</a></p></li>
 <li><p><strong>2026-01-12</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2026/01/12/datafusion-52.0.0">Apache DataFusion 52.0.0 Released</a></p></li>
 <li><p><strong>2025-12-04</strong> <a class="reference external" href="https://datafusion.apache.org/blog/2025/12/04/datafusion-comet-0.12.0">Apache DataFusion Comet 0.12.0 Release</a></p></li>
@@ -534,8 +552,10 @@
 <ul class="simple">
 <li><p><strong>2026-07-22</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/18428">Denver Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/jsu6faie">RSVP</a></p></li>
 <li><p><strong>2026-05-12</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/20030">New York City Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/adhshv92">RSVP</a></p></li>
+<li><p><strong>2026-05-11</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/21638">San Francisco Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/k3ointcl">RSVP</a></p></li>
 <li><p><strong>2026-04-23</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/13500">Seattle Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/hxshbp0m">RSVP</a></p></li>
-<li><p><strong>2026-03-05</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/18429">Stockholm Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/ctqtiqap">RSVP</a></p></li>
+<li><p><strong>2026-04-22</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/19817">Portland Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/dsp3ud82">RSVP</a></p></li>
+<li><p><strong>2026-03-05</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/18429">Stockholm Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/ctqtiqap">RSVP</a>, <a class="reference external" href="https://youtu.be/9u4cNmL14Xs">Recording</a></p></li>
 <li><p><strong>2026-02-19</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/19859">San Francisco Apache DataFusion Meetup</a> - <a class="reference external" href="https://luma.com/p7r6fp2z">RSVP</a>, <a class="reference external" href="https://www.youtube.com/playlist?list=PL42Ljm2tTt5peGUWMBN7WFkASq73j8PoU">Recording</a></p></li>
 <li><p><strong>2025-11-12</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/16703">Boston Apache DataFusion Meetup</a> - <a class="reference external" href="https://youtu.be/wCAud478Dg8">Recording</a>, <a class="reference external" href="https://drive.google.com/file/d/18KGH_wGHkgdAfjy5sQVKFhnN1GyYXSzU">Slides</a></p></li>
 <li><p><strong>2025-09-15</strong> <a class="reference external" href="https://github.com/apache/datafusion/discussions/16265">New York City Apache DataFusion Meetup</a> - <a class="reference external" href="https://lu.ma/qkcyycg0">RSVP</a>, <a class="reference external" href="https://youtu.be/ElAiN_1fX_4">Recording</a></p></li>
@@ -596,9 +616,9 @@
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Concepts, Readings, Events</a><ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Concepts, Readings, Events</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-concepts">🧭 Background Concepts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#good-reads">✨ Good Reads</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-notes-updates">📅 Release Notes &amp; Updates</a></li>
@@ -626,13 +646,13 @@
 </div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/user-guide/concepts-readings-events.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/user-guide/concepts-readings-events.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -647,8 +667,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 <!-- Based on pydata_sphinx_theme/footer.html -->
 <footer class="footer mt-5 mt-md-0">

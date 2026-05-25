@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Development Environment &#8212; Apache DataFusion  documentation</title>
+    <title>Release Management &#8212; Apache DataFusion  documentation</title>
   
   
   
@@ -42,13 +42,13 @@
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'contributor-guide/development_environment';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contributor-guide/release_management';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Architecture" href="architecture.html" />
-    <link rel="prev" title="Community Communication" href="communication.html" />
+    <link rel="next" title="Roadmap and Improvement Proposals" href="roadmap.html" />
+    <link rel="prev" title="HOWTOs" href="howtos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -322,13 +322,13 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="communication.html">Community Communication</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_environment.html">Development Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture/dependency-graph.html">Workspace Dependency Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-health.html">API health policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtos.html">HOWTOs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release_management.html">Release Management</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Release Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap and Improvement Proposals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="governance.html">Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inviting.html">Inviting New Committers and PMC Members</a></li>
@@ -391,7 +391,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Development Environment</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Release Management</span></li>
   </ul>
 </nav>
 </div>
@@ -426,114 +426,100 @@
   specific language governing permissions and limitations
   under the License.
 -->
-<section id="development-environment">
-<h1>Development Environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h1>
-<p>This section describes how you can get started at developing DataFusion.</p>
-<section id="quick-start">
-<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
-<p>For the fastest path to a working local environment, follow these steps
-from the repository root:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Install Rust (https://rust-lang.org/tools/install/) and verify the active toolchain with</span>
-rustup<span class="w"> </span>show
-
-<span class="c1"># 2. Install protoc 3.15+ (see details below)</span>
-protoc<span class="w"> </span>--version
-
-<span class="c1"># 3. Download test data used by examples and many tests</span>
-git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
-
-<span class="c1"># 4. Build the workspace</span>
-cargo<span class="w"> </span>build
-
-<span class="c1"># 5. Verify that Rust integration tests can be run</span>
-cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>datafusion<span class="w"> </span>--test<span class="w"> </span>parquet_integration
-
-<span class="c1"># 6. Verify that sqllogictests can run</span>
-cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--profile<span class="o">=</span>ci<span class="w"> </span>--test<span class="w"> </span>sqllogictests
-</pre></div>
-</div>
-<p>Notes:</p>
+<section id="release-management">
+<h1>Release Management<a class="headerlink" href="#release-management" title="Link to this heading">#</a></h1>
+<p>This page describes DataFusion release branches and backports. For the
+maintainer release guide, including release candidate artifacts, voting, and
+publication, see <a class="reference external" href="https://github.com/apache/datafusion/blob/main/dev/release/README.md">the release process README in <code class="docutils literal notranslate"><span class="pre">dev/release</span></code></a>.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>DataFusion typically has a major release about once per month, including
+breaking API changes. Patch releases are made on an ad hoc basis, but we try to
+avoid them because major releases are frequent.</p>
+<p>New development happens on the <a class="reference external" href="https://github.com/apache/datafusion/tree/main"><code class="docutils literal notranslate"><span class="pre">main</span></code> branch</a>. Releases are made from release
+branches named <code class="docutils literal notranslate"><span class="pre">branch-NN</span></code>, such as <a class="reference external" href="https://github.com/apache/datafusion/tree/branch-50"><code class="docutils literal notranslate"><span class="pre">branch-50</span></code></a> for the <code class="docutils literal notranslate"><span class="pre">50.x.y</span></code> release
+series.</p>
+<p>In general:</p>
 <ul class="simple">
-<li><p>The pinned Rust version is defined in <code class="docutils literal notranslate"><span class="pre">rust-toolchain.toml</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">protoc</span></code> is required to compile DataFusion from source.</p></li>
-<li><p>Some tests and examples rely on git submodule data being present locally.</p></li>
+<li><p>New features land on [<code class="docutils literal notranslate"><span class="pre">main</span></code>]</p></li>
+<li><p>Patch releases are cut from the corresponding <code class="docutils literal notranslate"><span class="pre">branch-NN</span></code></p></li>
+<li><p>Only targeted, low-risk fixes should be added to a release branch</p></li>
+</ul>
+<p>Changes reach a release branch in one of two ways:</p>
+<ul class="simple">
+<li><p>(Most common) Fix the issue on <code class="docutils literal notranslate"><span class="pre">main</span></code> and then backport the merged change to the release branch</p></li>
+<li><p>Fix the issue on the release branch and then forward-port the change to <code class="docutils literal notranslate"><span class="pre">main</span></code></p></li>
+</ul>
+<p>Releases are coordinated in a GitHub issue, such as the
+<a class="reference external" href="https://github.com/apache/datafusion/issues/18072">release issue for 50.3.0</a>. If you think a fix should be included in a patch
+release, discuss it on the relevant tracking issue first. You can also open the
+backport PR first and then link it from the tracking issue.</p>
+<p>To prepare for a new release series, maintainers:</p>
+<ul class="simple">
+<li><p>Create a new branch from <code class="docutils literal notranslate"><span class="pre">main</span></code>, such as <code class="docutils literal notranslate"><span class="pre">branch-50</span></code>, in the Apache repository</p></li>
+<li><p>Continue merging new features to <code class="docutils literal notranslate"><span class="pre">main</span></code></p></li>
+<li><p>Prepare the release branch for release by updating versions, changelog content,
+and any additional release-specific fixes via the
+<a class="reference internal" href="#backport-workflow">Backport Workflow</a></p></li>
+<li><p>Create release candidate artifacts from the release branch</p></li>
+<li><p>After approval, publish to crates.io, ASF distribution servers, and Git tags</p></li>
 </ul>
 </section>
-<section id="windows-setup">
-<h2>Windows Setup<a class="headerlink" href="#windows-setup" title="Link to this heading">#</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip
-choco<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>rustup.install<span class="w"> </span>visualcpp-build-tools
-git-bash.exe
-cargo<span class="w"> </span>build
+<section id="backport-workflow">
+<h2>Backport Workflow<a class="headerlink" href="#backport-workflow" title="Link to this heading">#</a></h2>
+<p>The usual workflow is:</p>
+<ol class="arabic simple">
+<li><p>Fix on <code class="docutils literal notranslate"><span class="pre">main</span></code> first, and merge the fix via a normal PR workflow.</p></li>
+<li><p>Cherry-pick the merged commit onto the release branch.</p></li>
+<li><p>Open a backport PR targeting the release branch (examples below).</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/apache/datafusion/pull/18131">Example backport PR</a></p></li>
+<li><p><a class="reference external" href="https://github.com/apache/datafusion/pull/20792">Additional backport PR example</a></p></li>
+</ul>
+<section id="inputs">
+<h3>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h3>
+<p>To backport a change, gather the following information:</p>
+<ul class="simple">
+<li><p>Target branch, such as <code class="docutils literal notranslate"><span class="pre">apache/branch-52</span></code></p></li>
+<li><p>The release tracking issue URL, such as https://github.com/apache/datafusion/issues/19692</p></li>
+<li><p>The original PR URL, such as https://github.com/apache/datafusion/pull/20192</p></li>
+<li><p>Optional explicit commit SHA to backport</p></li>
+</ul>
+</section>
+<section id="apply-the-backport">
+<h3>Apply the Backport<a class="headerlink" href="#apply-the-backport" title="Link to this heading">#</a></h3>
+<p>Start from the target release branch, create a dedicated backport branch, and
+use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span></code>. For example, to backport PR #1234 to <code class="docutils literal notranslate"><span class="pre">branch-52</span></code> when
+the commit SHA is <code class="docutils literal notranslate"><span class="pre">abc123</span></code>, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>apache/branch-52
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>alamb/backport_1234
+git<span class="w"> </span>cherry-pick<span class="w"> </span>abc123
 </pre></div>
 </div>
 </section>
-<section id="dev-container-setup">
-<h2>Dev Container setup<a class="headerlink" href="#dev-container-setup" title="Link to this heading">#</a></h2>
-<p>DataFusion has support for <a class="reference external" href="https://containers.dev/">dev containers</a> which may be used for
-developing DataFusion in an isolated environment either locally or remote if desired. Using dev containers for developing
-DataFusion is not a requirement but is available where doing local development could be tricky
-such as with Windows and WSL2, those with older hardware, etc.</p>
-<p>For specific details on IDE support for dev containers see the documentation for <a class="reference external" href="https://code.visualstudio.com/docs/devcontainers/containers">Visual Studio Code</a>,
-<a class="reference external" href="https://www.jetbrains.com/help/idea/connect-to-devcontainer.html">IntelliJ IDEA</a>,
-<a class="reference external" href="https://www.jetbrains.com/help/rust/connect-to-devcontainer.html">Rust Rover</a>, and
-<a class="reference external" href="https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers">GitHub Codespaces</a>.</p>
+<section id="test">
+<h3>Test<a class="headerlink" href="#test" title="Link to this heading">#</a></h3>
+<p>Run tests as described in the <a class="reference internal" href="testing.html"><span class="std std-doc">testing documentation</span></a>.</p>
 </section>
-<section id="protoc-installation">
-<h2><code class="docutils literal notranslate"><span class="pre">protoc</span></code> Installation<a class="headerlink" href="#protoc-installation" title="Link to this heading">#</a></h2>
-<p>Compiling DataFusion from sources requires an installed version of the protobuf compiler, <code class="docutils literal notranslate"><span class="pre">protoc</span></code>.</p>
-<p>On most platforms this can be installed from your system’s package manager. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Ubuntu
-$ sudo apt install -y protobuf-compiler
+<section id="open-the-pr">
+<h3>Open the PR<a class="headerlink" href="#open-the-pr" title="Link to this heading">#</a></h3>
+<p>Create a PR against the release branch, not <code class="docutils literal notranslate"><span class="pre">main</span></code>, and prefix it with
+<code class="docutils literal notranslate"><span class="pre">[branch-NN]</span></code> to show which release branch the backport targets. For example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[branch-52]</span> <span class="pre">fix:</span> <span class="pre">validate</span> <span class="pre">inter-file</span> <span class="pre">ordering</span> <span class="pre">in</span> <span class="pre">eq_properties()</span> <span class="pre">(#20329)</span></code></p></li>
+</ul>
+<p>Use a PR description that links the tracking issue, original PR, and target
+branch, for example:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="k">-</span><span class="w"> </span>Part of &lt;tracking-issue-url&gt;
+<span class="k">-</span><span class="w"> </span>Closes &lt;backport-issue-url&gt; on &lt;branch-name&gt;
 
-# Fedora
-$ dnf install -y protobuf-devel
+This PR:
 
-# Arch Linux
-$ pacman -S protobuf
-
-# macOS
-$ brew install protobuf
+<span class="k">-</span><span class="w"> </span>Backports &lt;original-pr-url&gt; from @&lt;author&gt; to the &lt;branch-name&gt; line
 </pre></div>
 </div>
-<p>You will want to verify the version installed is <code class="docutils literal notranslate"><span class="pre">3.15</span></code> or greater, which has support for explicit <a class="reference external" href="https://github.com/protocolbuffers/protobuf/blob/v3.15.0/docs/field_presence.md">field presence</a>. Older versions may fail to compile.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>protoc<span class="w"> </span>--version
-libprotoc<span class="w"> </span><span class="m">3</span>.15.0
-</pre></div>
-</div>
-<p>Alternatively a binary release can be downloaded from the <a class="reference external" href="https://github.com/protocolbuffers/protobuf/releases">Release Page</a> or <a class="reference external" href="https://github.com/protocolbuffers/protobuf/blob/main/src/README.md">built from source</a>.</p>
 </section>
-<section id="bootstrap-environment">
-<h2>Bootstrap Environment<a class="headerlink" href="#bootstrap-environment" title="Link to this heading">#</a></h2>
-<p>DataFusion is written in Rust and it uses a standard rust toolkit:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">update</span> <span class="pre">stable</span></code> DataFusion generally uses the latest stable release of Rust, though it may lag when new Rust toolchains release</p>
-<ul>
-<li><p>See which toolchain is currently pinned in the <a class="reference external" href="https://github.com/apache/datafusion/blob/main/rust-toolchain.toml"><code class="docutils literal notranslate"><span class="pre">rust-toolchain.toml</span></code></a> file</p></li>
-<li><p>This can cause issues such as not having the rust-analyzer component installed for the specified toolchain, in which case just install it manually, e.g. <code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">component</span> <span class="pre">add</span> <span class="pre">--toolchain</span> <span class="pre">1.95.0</span> <span class="pre">rust-analyzer</span></code></p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">fmt</span></code> to format the code</p></li>
-<li><p>etc.</p></li>
-</ul>
-<p>Testing setup:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span> <span class="pre">init</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span> <span class="pre">update</span> <span class="pre">--init</span> <span class="pre">--remote</span> <span class="pre">--recursive</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">test</span></code> to run tests</p></li>
-</ul>
-<p>Note that running <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">test</span></code> requires significant memory resources, due to cargo running many tests in parallel by default. If you run into issues with slow tests or system lock ups, you can significantly reduce the memory required by instead running <code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">test</span> <span class="pre">--</span> <span class="pre">--test-threads=1</span></code>. For more information see <a class="reference external" href="https://github.com/apache/datafusion/issues/5347">this issue</a>.</p>
-<p>Formatting instructions:</p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/4a91b8629bd17ce8ae200ee0b5345f19/rust_fmt.sh"><span class="xref download myst">ci/scripts/rust_fmt.sh</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../_downloads/ca7ec2ded721157172203812bd6e22b2/rust_clippy.sh"><span class="xref download myst">ci/scripts/rust_clippy.sh</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../_downloads/5b1657e27416274aa54d7579d8b125c3/rust_toml_fmt.sh"><span class="xref download myst">ci/scripts/rust_toml_fmt.sh</span></a></p></li>
-</ul>
-<p>or run them all at once:</p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="../_downloads/1e336e540124589d1e27210fa4f805f6/rust_lint.sh"><span class="xref download myst">dev/rust_lint.sh</span></a></p></li>
-</ul>
 </section>
 </section>
 
@@ -548,20 +534,20 @@ libprotoc<span class="w"> </span><span class="m">3</span>.15.0
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="communication.html"
+       href="howtos.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Community Communication</p>
+        <p class="prev-next-title">HOWTOs</p>
       </div>
     </a>
     <a class="right-next"
-       href="architecture.html"
+       href="roadmap.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Architecture</p>
+        <p class="prev-next-title">Roadmap and Improvement Proposals</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,11 +570,14 @@ libprotoc<span class="w"> </span><span class="m">3</span>.15.0
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-setup">Windows Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dev-container-setup">Dev Container setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protoc-installation"><code class="docutils literal notranslate"><span class="pre">protoc</span></code> Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrap-environment">Bootstrap Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backport-workflow">Backport Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">Inputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-backport">Apply the Backport</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-the-pr">Open the PR</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -596,7 +585,7 @@ libprotoc<span class="w"> </span><span class="m">3</span>.15.0
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/apache/arrow-datafusion/edit/main/docs/source/contributor-guide/development_environment.md">
+    <a href="https://github.com/apache/arrow-datafusion/edit/main/docs/source/contributor-guide/release_management.md">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -611,7 +600,7 @@ libprotoc<span class="w"> </span><span class="m">3</span>.15.0
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/contributor-guide/development_environment.md.txt">
+    <a href="../_sources/contributor-guide/release_management.md.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

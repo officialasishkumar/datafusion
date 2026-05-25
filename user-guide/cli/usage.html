@@ -27,22 +27,23 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=d08b24aa" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/cli/usage';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -51,20 +52,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -90,7 +97,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -321,6 +328,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/api-health.html">API health policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/howtos.html">HOWTOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/release_management.html">Release Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/roadmap.html">Roadmap and Improvement Proposals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/governance.html">Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributor-guide/inviting.html">Inviting New Committers and PMC Members</a></li>
@@ -339,6 +347,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/ballista/">DataFusion Ballista</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/comet/">DataFusion Comet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/java/">DataFusion Java</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/python/">DataFusion Python</a></li>
 </ul>
 
@@ -423,64 +432,45 @@
 <section id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h1>
 <p>See the current usage using <code class="docutils literal notranslate"><span class="pre">datafusion-cli</span> <span class="pre">--help</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Apache<span class="w"> </span>Arrow<span class="w"> </span>&lt;dev@arrow.apache.org&gt;
-Command<span class="w"> </span>Line<span class="w"> </span>Client<span class="w"> </span><span class="k">for</span><span class="w"> </span>DataFusion<span class="w"> </span>query<span class="w"> </span>engine.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Command<span class="w"> </span>Line<span class="w"> </span>Client<span class="w"> </span><span class="k">for</span><span class="w"> </span>DataFusion<span class="w"> </span>query<span class="w"> </span>engine.
 
-USAGE:
-<span class="w">    </span>datafusion-cli<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+Usage:<span class="w"> </span>datafusion-cli<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 
-OPTIONS:
-<span class="w">    </span>-b,<span class="w"> </span>--batch-size<span class="w"> </span>&lt;BATCH_SIZE&gt;
-<span class="w">            </span>The<span class="w"> </span>batch<span class="w"> </span>size<span class="w"> </span>of<span class="w"> </span>each<span class="w"> </span>query,<span class="w"> </span>or<span class="w"> </span>use<span class="w"> </span>DataFusion<span class="w"> </span>default
-
-<span class="w">    </span>-c,<span class="w"> </span>--command<span class="w"> </span>&lt;COMMAND&gt;...
-<span class="w">            </span>Execute<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span><span class="nb">command</span><span class="w"> </span>string<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">exit</span>
-
-<span class="w">        </span>--color
-<span class="w">            </span>Enables<span class="w"> </span>console<span class="w"> </span>syntax<span class="w"> </span>highlighting
-
-<span class="w">    </span>-f,<span class="w"> </span>--file<span class="w"> </span>&lt;FILE&gt;...
-<span class="w">            </span>Execute<span class="w"> </span>commands<span class="w"> </span>from<span class="w"> </span>file<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">exit</span>
-
-<span class="w">        </span>--format<span class="w"> </span>&lt;FORMAT&gt;
-<span class="w">            </span><span class="o">[</span>default:<span class="w"> </span>table<span class="o">]</span><span class="w"> </span><span class="o">[</span>possible<span class="w"> </span>values:<span class="w"> </span>csv,<span class="w"> </span>tsv,<span class="w"> </span>table,<span class="w"> </span>json,<span class="w"> </span>nd-json<span class="o">]</span>
-
-<span class="w">    </span>-h,<span class="w"> </span>--help
-<span class="w">            </span>Print<span class="w"> </span><span class="nb">help</span><span class="w"> </span>information
-
-<span class="w">    </span>-m,<span class="w"> </span>--memory-limit<span class="w"> </span>&lt;MEMORY_LIMIT&gt;
-<span class="w">            </span>The<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>limitation<span class="w"> </span><span class="o">(</span>e.g.<span class="w"> </span><span class="s1">&#39;10g&#39;</span><span class="o">)</span>,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span>None<span class="w"> </span><span class="o">(</span>no<span class="w"> </span>limit<span class="o">)</span>
-
-<span class="w">        </span>--maxrows<span class="w"> </span>&lt;MAXROWS&gt;
-<span class="w">            </span>The<span class="w"> </span>max<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>rows<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;Table&#39;</span><span class="w"> </span>format
-<span class="w">            </span><span class="o">[</span>possible<span class="w"> </span>values:<span class="w"> </span>numbers<span class="o">(</span><span class="m">0</span>/10/...<span class="o">)</span>,<span class="w"> </span>inf<span class="o">(</span>no<span class="w"> </span>limit<span class="o">)]</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="m">40</span><span class="o">]</span>
-
-<span class="w">        </span>--mem-pool-type<span class="w"> </span>&lt;MEM_POOL_TYPE&gt;
-<span class="w">            </span>Specify<span class="w"> </span>the<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s1">&#39;greedy&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;fair&#39;</span>,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;greedy&#39;</span>
-
-<span class="w">        </span>--top-memory-consumers<span class="w"> </span>&lt;TOP_MEMORY_CONSUMERS&gt;
-<span class="w">            </span>The<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>top<span class="w"> </span>memory<span class="w"> </span>consumers<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span>when<span class="w"> </span>query<span class="w"> </span>fails<span class="w"> </span>due<span class="w"> </span>to<span class="w"> </span>memory<span class="w"> </span>exhaustion.
-<span class="w">            </span>To<span class="w"> </span>disable<span class="w"> </span>memory<span class="w"> </span>consumer<span class="w"> </span>tracking,<span class="w"> </span><span class="nb">set</span><span class="w"> </span>this<span class="w"> </span>value<span class="w"> </span>to<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="m">3</span><span class="o">]</span>.
-<span class="w">            </span>Please<span class="w"> </span><span class="nb">set</span><span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>runtime<span class="w"> </span>configs:<span class="w"> </span><span class="s1">&#39;--memory-limit&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;--mem-pool-type&#39;</span><span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span><span class="s1">&#39;top-memory-consumers&#39;</span><span class="w"> </span>result<span class="w"> </span>when<span class="w"> </span>memory<span class="w"> </span>is<span class="w"> </span>exhausted.
-
-<span class="w">    </span>-d,<span class="w"> </span>--disk-limit<span class="w"> </span>&lt;DISK_LIMIT&gt;
-<span class="w">            </span>Available<span class="w"> </span>disk<span class="w"> </span>space<span class="w"> </span><span class="k">for</span><span class="w"> </span>spilling<span class="w"> </span>queries<span class="w"> </span><span class="o">(</span>e.g.<span class="w"> </span><span class="s1">&#39;10g&#39;</span><span class="o">)</span>,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span>None<span class="w"> </span><span class="o">(</span>uses<span class="w"> </span>DataFusion<span class="s1">&#39;s default value of &#39;</span>100g<span class="s1">&#39;)</span>
-
+Options:
+<span class="w">  </span>-p,<span class="w"> </span>--data-path<span class="w"> </span>&lt;DATA_PATH&gt;
+<span class="w">          </span>Path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>data,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span>current<span class="w"> </span>directory
+<span class="w">  </span>-b,<span class="w"> </span>--batch-size<span class="w"> </span>&lt;BATCH_SIZE&gt;
+<span class="w">          </span>The<span class="w"> </span>batch<span class="w"> </span>size<span class="w"> </span>of<span class="w"> </span>each<span class="w"> </span>query,<span class="w"> </span>or<span class="w"> </span>use<span class="w"> </span>DataFusion<span class="w"> </span>default
+<span class="w">  </span>-c,<span class="w"> </span>--command<span class="w"> </span><span class="o">[</span>&lt;COMMAND&gt;...<span class="o">]</span>
+<span class="w">          </span>Execute<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span><span class="nb">command</span><span class="w"> </span>string<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span><span class="k">then</span><span class="w"> </span>exit.<span class="w"> </span>Commands<span class="w"> </span>are<span class="w"> </span>expected<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>non<span class="w"> </span>empty.
+<span class="w">  </span>-m,<span class="w"> </span>--memory-limit<span class="w"> </span>&lt;MEMORY_LIMIT&gt;
+<span class="w">          </span>The<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span>limitation<span class="w"> </span><span class="o">(</span>e.g.<span class="w"> </span><span class="s1">&#39;10g&#39;</span><span class="o">)</span>,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span>None<span class="w"> </span><span class="o">(</span>no<span class="w"> </span>limit<span class="o">)</span>
+<span class="w">  </span>-f,<span class="w"> </span>--file<span class="w"> </span><span class="o">[</span>&lt;FILE&gt;...<span class="o">]</span>
+<span class="w">          </span>Execute<span class="w"> </span>commands<span class="w"> </span>from<span class="w"> </span>file<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="nb">exit</span>
+<span class="w">  </span>-r,<span class="w"> </span>--rc<span class="w"> </span><span class="o">[</span>&lt;RC&gt;...<span class="o">]</span>
+<span class="w">          </span>Run<span class="w"> </span>the<span class="w"> </span>provided<span class="w"> </span>files<span class="w"> </span>on<span class="w"> </span>startup<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>~/.datafusionrc
+<span class="w">      </span>--format<span class="w"> </span>&lt;FORMAT&gt;
+<span class="w">          </span><span class="o">[</span>default:<span class="w"> </span>automatic<span class="o">]</span><span class="w"> </span><span class="o">[</span>possible<span class="w"> </span>values:<span class="w"> </span>csv,<span class="w"> </span>tsv,<span class="w"> </span>table,<span class="w"> </span>json,<span class="w"> </span>nd-json,<span class="w"> </span>automatic<span class="o">]</span>
+<span class="w">  </span>-q,<span class="w"> </span>--quiet
+<span class="w">          </span>Reduce<span class="w"> </span>printing<span class="w"> </span>other<span class="w"> </span>than<span class="w"> </span>the<span class="w"> </span>results<span class="w"> </span>and<span class="w"> </span>work<span class="w"> </span>quietly
+<span class="w">      </span>--mem-pool-type<span class="w"> </span>&lt;MEM_POOL_TYPE&gt;
+<span class="w">          </span>Specify<span class="w"> </span>the<span class="w"> </span>memory<span class="w"> </span>pool<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s1">&#39;greedy&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;fair&#39;</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>greedy<span class="o">]</span>
+<span class="w">      </span>--top-memory-consumers<span class="w"> </span>&lt;TOP_MEMORY_CONSUMERS&gt;
+<span class="w">          </span>The<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>top<span class="w"> </span>memory<span class="w"> </span>consumers<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span>when<span class="w"> </span>query<span class="w"> </span>fails<span class="w"> </span>due<span class="w"> </span>to<span class="w"> </span>memory<span class="w"> </span>exhaustion.<span class="w"> </span>To<span class="w"> </span>disable<span class="w"> </span>memory<span class="w"> </span>consumer<span class="w"> </span>tracking,<span class="w"> </span><span class="nb">set</span><span class="w"> </span>this<span class="w"> </span>value<span class="w"> </span>to<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="w">      </span>--maxrows<span class="w"> </span>&lt;MAXROWS&gt;
+<span class="w">          </span>The<span class="w"> </span>max<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>rows<span class="w"> </span>to<span class="w"> </span>display<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;Table&#39;</span><span class="w"> </span>format
+<span class="w">          </span><span class="o">[</span>possible<span class="w"> </span>values:<span class="w"> </span>numbers<span class="o">(</span><span class="m">0</span>/10/...<span class="o">)</span>,<span class="w"> </span>inf<span class="o">(</span>no<span class="w"> </span>limit<span class="o">)]</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="m">40</span><span class="o">]</span>
+<span class="w">      </span>--color
+<span class="w">          </span>Enables<span class="w"> </span>console<span class="w"> </span>syntax<span class="w"> </span>highlighting
+<span class="w">  </span>-d,<span class="w"> </span>--disk-limit<span class="w"> </span>&lt;DISK_LIMIT&gt;
+<span class="w">          </span>Available<span class="w"> </span>disk<span class="w"> </span>space<span class="w"> </span><span class="k">for</span><span class="w"> </span>spilling<span class="w"> </span>queries<span class="w"> </span><span class="o">(</span>e.g.<span class="w"> </span><span class="s1">&#39;10g&#39;</span><span class="o">)</span>,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span>None<span class="w"> </span><span class="o">(</span>uses<span class="w"> </span>DataFusion<span class="s1">&#39;s default value of &#39;</span>100g<span class="s1">&#39;)</span>
 <span class="s1">      --object-store-profiling &lt;OBJECT_STORE_PROFILING&gt;</span>
 <span class="s1">          Specify the default object_store_profiling mode, defaults to &#39;</span>disabled<span class="err">&#39;</span>.
 <span class="w">          </span><span class="o">[</span>possible<span class="w"> </span>values:<span class="w"> </span>disabled,<span class="w"> </span>summary,<span class="w"> </span>trace<span class="o">]</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>Disabled<span class="o">]</span>
-
-<span class="w">    </span>-p,<span class="w"> </span>--data-path<span class="w"> </span>&lt;DATA_PATH&gt;
-<span class="w">            </span>Path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>data,<span class="w"> </span>default<span class="w"> </span>to<span class="w"> </span>current<span class="w"> </span>directory
-
-<span class="w">    </span>-q,<span class="w"> </span>--quiet
-<span class="w">            </span>Reduce<span class="w"> </span>printing<span class="w"> </span>other<span class="w"> </span>than<span class="w"> </span>the<span class="w"> </span>results<span class="w"> </span>and<span class="w"> </span>work<span class="w"> </span>quietly
-
-<span class="w">    </span>-r,<span class="w"> </span>--rc<span class="w"> </span>&lt;RC&gt;...
-<span class="w">            </span>Run<span class="w"> </span>the<span class="w"> </span>provided<span class="w"> </span>files<span class="w"> </span>on<span class="w"> </span>startup<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>~/.datafusionrc
-
-<span class="w">    </span>-V,<span class="w"> </span>--version
-<span class="w">            </span>Print<span class="w"> </span>version<span class="w"> </span>information
+<span class="w">  </span>-h,<span class="w"> </span>--help
+<span class="w">          </span>Print<span class="w"> </span><span class="nb">help</span>
+<span class="w">  </span>-V,<span class="w"> </span>--version
+<span class="w">          </span>Print<span class="w"> </span>version
 </pre></div>
 </div>
 <section id="commands">
@@ -711,8 +701,8 @@ for details.</p>
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands">Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-sql">Supported SQL</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-all-verbose"><code class="docutils literal notranslate"><span class="pre">SHOW</span> <span class="pre">ALL</span> <span class="pre">[VERBOSE]</span></code></a></li>
@@ -742,13 +732,13 @@ for details.</p>
 </div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/user-guide/cli/usage.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/user-guide/cli/usage.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -763,8 +753,8 @@ for details.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
 <!-- Based on pydata_sphinx_theme/footer.html -->
 <footer class="footer mt-5 mt-md-0">
